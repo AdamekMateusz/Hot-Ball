@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <vector>
 
 class Ball : public sf::Drawable
 {
@@ -20,6 +21,7 @@ public:
 	float right();
 	float top();    
 	float bottom();
+	void change_level(float x,float y);
 
 private:
 	float speed_X;

@@ -9,7 +9,7 @@ public:
 	Pionek() = delete;
 	~Pionek() = default;
 	//wspolrzedne okreslaja polorzenie playera na ekranie
-	Pionek(float t_X, float t_Y,float t_width, float t_high);
+	Pionek(float t_X, float t_Y, float t_width, float t_high, float speed, sf::Color a);
 
 	void update();
 	sf::Vector2f getPosition();
@@ -27,16 +27,19 @@ public:
 
 	sf::Vector2f getSize();
 
+	
+	void change_color(sf::Color a);
+	void position();
 private:
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
 	sf::RectangleShape shape;
 	//const float playerWidth = 40.0;	//okreslamy szerokosc naszego playera
 	//const float playerHigh = 40;
-	const float player_velocity = 6;
+	float player_velocity;
 
-	sf::Vector2f velocity{ player_velocity,0 };	//ustawiamy z jaka predkoscia bedzi poruszal sie nasz player
+	sf::Vector2f velocity{};	//ustawiamy z jaka predkoscia bedzi poruszal sie nasz player
 	bool destroyed{ false };
-
+	
 
 };
 

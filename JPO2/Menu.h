@@ -12,6 +12,7 @@ public:
 	void draw(sf::RenderWindow& window);
 	void MoveUp();
 	void MoveDown();
+	void close(sf::RenderWindow& window);
 
 	int GetPressedItem() { return selectedItemIndex; }
 	//int GetPressedItem();

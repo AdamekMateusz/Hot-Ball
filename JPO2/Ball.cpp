@@ -1,5 +1,6 @@
 #include "Ball.h"
 
+
 Ball::Ball(float t_X, float t_Y,float velocity_X,float velocity_Y) {
 	
 	shape.setPosition(t_X, t_Y);				//ustawiamy pozycje gfdzie kulka zostanie utworzna
@@ -58,4 +59,10 @@ float Ball::top()
 float Ball::bottom()
 {
 	return this->shape.getPosition().y + shape.getRadius();
+}
+
+void Ball::change_level(float x, float y) {
+	speed_X = x;
+	speed_Y = y;
+
 }

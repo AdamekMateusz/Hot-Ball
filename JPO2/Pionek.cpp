@@ -2,12 +2,14 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-Pionek::Pionek(float t_X,float t_Y,float width, float high) {
+Pionek::Pionek(float t_X,float t_Y,float width, float high,float speed, sf::Color a) {
 	shape.setPosition(t_X, t_Y);
-	shape.setFillColor(sf::Color::Red);
+	shape.setFillColor(a);
 	shape.setSize({ width,high });
 	shape.setOrigin(width / 2.f, high / 2.f); // ustawiamy nasz origicz na srodku naszego playera;
-
+	player_velocity = speed;
+	velocity = { player_velocity,0 };
+	destroyed = false;
 
 }
 
@@ -117,9 +119,19 @@ void Pionek::destroy(){
 
 	this->destroyed = true;
 	std::cout << "Jest w destroy\n";
-	exit(0);
+	//exit(0);
 }
 
 sf::Vector2f Pionek :: getSize() {
 	return shape.getSize();
+}
+
+void Pionek :: change_color(sf::Color a) {
+	shape.setFillColor(a);
+
+}
+
+void Pionek::position() {
+	shape.setPosition(400, 300);
+
 }

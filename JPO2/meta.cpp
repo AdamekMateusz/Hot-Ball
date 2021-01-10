@@ -48,5 +48,7 @@ void Meta::destroy() {
 	//kezeli player dojsdzie do mety to cos ma sie wyswietlic
 	this->destroyed = true;
 	std::cout << "Jest w destroy\n";
-	exit(0);
+	
+	
+	
 }

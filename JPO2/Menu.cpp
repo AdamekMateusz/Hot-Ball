@@ -67,3 +67,8 @@ int Menu:: GetPressedItem() {
 
 }
 */
+void Menu::close(sf::RenderWindow& window) {
+	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
+		window.clear();
+	}
+}
