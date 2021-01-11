@@ -16,7 +16,9 @@ public:
 	int GetPressedItem() { return selectedItemIndex; }
 	//int GetPressedItem();
 	//void clear(sf::RenderWindow& window);
-	void set_finish(bool conditional);
+	//void set_finish(bool conditional);
+
+	void set_finish(bool which_finish);
 
 private:
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;

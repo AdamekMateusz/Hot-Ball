@@ -124,10 +124,14 @@ int main()
     Ball ball(20, 20, level_medium[2][0], level_medium[2][1]); //wszedzie
     Ball ball2(20, 20, level_medium[1][0], level_medium[1][1]); //pionowo
     Ball ball3(20, 20, level_medium[0][0], level_medium[0][1]);  //poziomo
+
+    Ball ball4(300, 300, level_medium[2][0], level_medium[2][1]); //wszedzie
+    Ball ball5(200, 200, level_medium[1][0], level_medium[1][1]); //pionowo
+    Ball ball6(500, 500, level_medium[0][0], level_medium[0][1]);  //poziomo
     
    //sf::Color my_color_player = choose_Col[0];
 
-    Pionek player(400,300, 40, 40, 6, sf::Color:: Red);
+    Pionek player(380,560, 40, 40, 6, sf::Color:: Red);
     //Pionek player(476, 321,40,40,6,sf::Color::Red);
     //tworzymy okno i tworzymy jego nazwe i tytul 
 
@@ -218,12 +222,18 @@ int main()
                 ball.update();
                 ball2.update();
                 ball3.update();
+                ball4.update();
+                ball5.update();
+                ball6.update();
                 player.update();
 
                 window.draw(meta);
                 window.draw(ball);  //kulka zostanie wyswietlona na ekranie
                 window.draw(ball2);
                 window.draw(ball3);
+                window.draw(ball4);  //kulka zostanie wyswietlona na ekranie
+                window.draw(ball5);
+                window.draw(ball6);
                 window.draw(player);
 
                 //wyswietlimy wszyskie elementy
@@ -266,6 +276,41 @@ int main()
                     //end = false;
                     
                 }
+
+
+                if (collisionTest(player, ball4)) {
+                    //End_menu the_end(window.getSize().x, window.getSize().y, false);
+                    //window.draw(the_end);
+                   // player.destroy();
+                    the_end2.set_finish(false);
+                    check = 8;
+                    // end = false;
+                    std::cout << "ball\n";
+
+
+                }
+                if (collisionTest(player, ball5)) {
+                    //End_menu the_end1(window.getSize().x, window.getSize().y, false);
+                   // window.draw(the_end1);
+                    //player.destroy();
+                    the_end2.set_finish(false);
+                    check = 8;
+                    //end = false;
+                    std::cout << "udalo ball2\n";
+
+                }
+
+                if (collisionTest(player, ball6)) {
+                    // End_menu the_end2(window.getSize().x, window.getSize().y, false);
+                    //window.draw(the_end2);
+                    // player.destroy();
+                    the_end2.set_finish(false);
+                    check = 8;
+                    std::cout << "udalo sie\n";
+                    //end = false;
+
+                }
+
 
                 if (collisionTest(player, meta)) {
 
@@ -405,6 +450,9 @@ int main()
                             ball.change_level(level_easy[2][0], level_easy[2][1]);
                             ball2.change_level(level_easy[1][0],level_easy[1][1]);
                             ball3.change_level(level_easy[0][0],level_easy[0][1]);
+                            ball4.change_level(level_easy[2][0], level_easy[2][1]);
+                            ball5.change_level(level_easy[1][0], level_easy[1][1]);
+                            ball6.change_level(level_easy[0][0], level_easy[0][1]);
 
                             break;
                         case 1:
@@ -415,6 +463,9 @@ int main()
                             ball.change_level(level_medium[2][0], level_medium[2][1]);
                             ball2.change_level(level_medium[1][0], level_medium[1][1]);
                             ball3.change_level(level_medium[0][0], level_medium[0][1]);
+                            ball4.change_level(level_medium[2][0], level_medium[2][1]);
+                            ball5.change_level(level_medium[1][0], level_medium[1][1]);
+                            ball6.change_level(level_medium[0][0], level_medium[0][1]);
                             
 
                             break;
@@ -423,6 +474,9 @@ int main()
                             ball.change_level(level_hard[2][0], level_hard[2][1]);
                             ball2.change_level(level_hard[1][0], level_hard[1][1]);
                             ball3.change_level(level_hard[0][0], level_hard[0][1]);
+                            ball4.change_level(level_hard[2][0], level_hard[2][1]);
+                            ball5.change_level(level_hard[1][0], level_hard[1][1]);
+                            ball6.change_level(level_hard[0][0], level_hard[0][1]);
                             break;
 
                         case 3:

@@ -132,6 +132,6 @@ void Pionek :: change_color(sf::Color a) {
 }
 
 void Pionek::position() {
-	shape.setPosition(400, 300);
+	shape.setPosition(380, 560);
 
 }
