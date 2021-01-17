@@ -8,7 +8,8 @@ class Pionek :public sf::Drawable
 public:
 	Pionek() = delete;
 	~Pionek() = default;
-	//wspolrzedne okreslaja polorzenie playera na ekranie
+	//create the countructor whitz parameters
+	// t_X i t_Y is a start coordinates of our player, t_width, t_hight is a size of our player
 	Pionek(float t_X, float t_Y, float t_width, float t_high, float speed, sf::Color a);
 
 	void update();
@@ -19,7 +20,7 @@ public:
 	float top();
 	float bottom();
 
-	//sprawdzamy czy Pionek istnieje
+	//the metod which be check that the player exist
 	bool isDestroyed();
 
 	//metoda niszczaca bloczek
@@ -32,12 +33,10 @@ public:
 	void position();
 private:
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
-	sf::RectangleShape shape;
-	//const float playerWidth = 40.0;	//okreslamy szerokosc naszego playera
-	//const float playerHigh = 40;
-	float player_velocity;
+	sf::RectangleShape shape;	//we set shape our player like Rectangle
+	float player_velocity;		
 
-	sf::Vector2f velocity{};	//ustawiamy z jaka predkoscia bedzi poruszal sie nasz player
+	sf::Vector2f velocity{};	//the vector which will be set the speed of our player
 	bool destroyed{ false };
 	
 

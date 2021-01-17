@@ -39,11 +39,7 @@ void Pionek::update() {
 	else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && this->bottom() < 600) {
 		velocity.y = player_velocity;
 	}
-	/*else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && this->bottom() >= 600 && this ->right()>=800) {
-		velocity.y = 0;
-		velocity.x = 0;
-
-	}*/
+	
 
 	
 	else
@@ -57,7 +53,7 @@ void Pionek::update() {
 
 
 float Pionek::left()
-{	//ustawiamy nasz punkt przedmiotu na jego srodek. 
+{	
 
 	if ((this->shape.getPosition().x - shape.getSize().x / 2.f) <= 0) {
 		shape.setPosition(20, shape.getPosition().y);
@@ -118,7 +114,7 @@ bool Pionek::isDestroyed() {
 void Pionek::destroy(){
 
 	this->destroyed = true;
-	std::cout << "Jest w destroy\n";
+	//std::cout << "Jest w destroy\n";
 	//exit(0);
 }
 

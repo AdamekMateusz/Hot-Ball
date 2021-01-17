@@ -9,20 +9,15 @@ public:
 	End_menu(float width, float height);
 	~End_menu();
 
-	//void draw(sf::RenderWindow& window);
 	void MoveLeft();
 	void MoveRight();
 
 	int GetPressedItem() { return selectedItemIndex; }
-	//int GetPressedItem();
-	//void clear(sf::RenderWindow& window);
-	//void set_finish(bool conditional);
-
+	
 	void set_finish(bool which_finish);
 
 private:
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
-	//void draw(sf::RenderTarget& target, sf::RenderStates state);
 
 	int selectedItemIndex = 0;
 	sf::Font font;

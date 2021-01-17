@@ -15,7 +15,6 @@ public:
 	void close(sf::RenderWindow& window);
 
 	int GetPressedItem() { return selectedItemIndex; }
-	//int GetPressedItem();
 private:
 	int selectedItemIndex;
 	sf::Font font;

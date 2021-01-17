@@ -7,16 +7,16 @@ class Ball : public sf::Drawable
 public:
 	
 
-	//pierwsze dwie oznaczaja nasze koordynaty gdzie zostanie stworzony nasz obiket.
+	//coordinates od our ball,speed our ball
 	Ball(float t_X, float t_Y, float velocity_X, float velocity_Y);
 
 	Ball() = delete;
 	~Ball() = default;
 
-	//funckja odpowiedzialna za aktualizowanie naszego obiektu , ukazuje ze kulka sie przemieszca
+	//function which refresh our object on the map
 	void update();
-	//te metody beda zwracac wspolrzedne naszej krawedzi, docelowo bedzimy sprawdzac czy krawedz naszej kulki zderzyal sie z wspolrzedna krawedzi.
-
+	
+	//return the edge, we will be check that the coordinates of our ball is the same like edge
 	float left();
 	float right();
 	float top();    
@@ -26,12 +26,11 @@ public:
 private:
 	float speed_X;
 	float speed_Y;
-	//tworzymy kulke
+	//create the ball
 	sf::CircleShape shape;
-	//definiujemy wielkosc promienia kulki
+	//set ball radius
 	const float ballRadius{ 10.0f };
-	//const float ballVelocity{ 3.0f }; //tutaj deklaruje szybosc kulki
-	sf::Vector2f velocity{};	//nadajemy w jakich plaszczyznach bedzie sie pporuszala, prosto i w dol
+	sf::Vector2f velocity{};	//ball move direction
 
 
 

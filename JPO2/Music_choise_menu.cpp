@@ -10,13 +10,13 @@ Music_choise_menu::Music_choise_menu(float width, float height)
 	 music_choise[0].setFont(font);
 	 music_choise[0].setFillColor(sf::Color::Red);
 	 music_choise[0].setString("podklad");
-	 //FinishW[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
+
 	 music_choise[0].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 1));
 	
 	 music_choise[1].setFont(font);
 	 music_choise[1].setFillColor(sf::Color::White);
 	 music_choise[1].setString("My_Doorbell");
-	 music_choise[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));	//ta liczb 2 na koncu pozwala nam uzyskac kolejnosc naszego Menu , Play bedzie pierwsze options 2
+	 music_choise[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));	
 	 
 	 music_choise[2].setFont(font);
 	 music_choise[2].setFillColor(sf::Color::White);
@@ -25,7 +25,7 @@ Music_choise_menu::Music_choise_menu(float width, float height)
 	 
 	 music_choise[3].setFont(font);
 	 music_choise[3].setFillColor(sf::Color::White);
-	 music_choise[3].setString("wstecz");
+	 music_choise[3].setString("BACK");
 	 music_choise[3].setPosition(sf::Vector2f(20, height / (MAX_NUMBER_OF_ITEMS + 1) * 4));
 
 

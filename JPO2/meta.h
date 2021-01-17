@@ -23,7 +23,7 @@ public:
 private:
 	void draw(sf::RenderTarget& target, sf::RenderStates state) const override;
 	sf::RectangleShape shape;
-	const float Width = 80.0;	//szerokosc naszej mety
+	const float Width = 80.0;	
 	const float High = 30;
 
 	bool destroyed{ false };

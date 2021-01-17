@@ -1,5 +1,9 @@
-// JPO2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/* Przedmiot: Jezyki Programowania Obiektowego
+  Project: "Simple Game"
+  Author: Mateusz Adamek
+  mail: madamek@student.agh.edu.pl
+  Index: 305117
+*/
 
 #include <iostream>
 #include <SFML/Graphics.hpp>
@@ -18,14 +22,15 @@
 #include "Color_Menu.h"
 
 
+//Create template function to check for a collision object
 
-//funkcja z dwoma parametrami szablonowymi dla dowolnych typow obiketow
 template <class T1, class T2> bool isIntersecting(T1& A, T2& B) {
-    //tutaj sprawdzamy czy jakos obikety sie na sobie nachodza
+
     return A.right() >= B.left() && A.left() <= B.right()
         && A.bottom() >= B.top() && A.top() <= B.bottom();
 }
 
+//return true if two or more object are interecting
 bool collisionTest(Pionek& player, Ball& ball2) {
 
     if (!isIntersecting(player, ball2)) {
@@ -41,7 +46,7 @@ bool collisionTest(Pionek& player, Ball& ball2) {
     
 }
 
-
+//return true if two or more object are intersecting
 bool collisionTest(Pionek& player, Meta& meta) {
 
     if (!isIntersecting(player, meta)) {
@@ -55,12 +60,13 @@ bool collisionTest(Pionek& player, Meta& meta) {
         
 
 }
-
+//create wector which include the name of songs
 std::vector<std::string> utwory{
     "podklad.wav",
     "My_Doorbell.wav",
     "Hardest_Button.wav"
 };
+//set a deafult song, song for posiotion 0 in vectot 'utwory'
 std::string a = utwory[0];
 
 
@@ -71,20 +77,9 @@ std::string a = utwory[0];
 int main()
 {   
     int check = 0;
-    bool end{ false };
-    /*
-    std::vector<sf::Color> choose_Col{
-        sf::Color::Red,
-        sf::Color::Yellow,
-        sf::Color::Green
-    };
-    */
-    /* Wektor wypelniamy w nasepujacy sposob  latwy [kulka_ruch_poziomo]
-                                                    [kulka_ruch_pionowo]
-                                                    [kulka_ruch_wszedzie]
-    */
+    //bool end{ false };
 
-
+    //Create the level of our game
     std::vector<std::vector<int>> level_easy = { {3,0},
                                                  {0,3},
                                                  {3,3}
@@ -99,8 +94,8 @@ int main()
                                                  {0,9},
                                                  {9,9}
     };
-
-
+    
+    //load our music
     sf::Music music;
     if (!music.openFromFile(a)) {
 
@@ -110,32 +105,24 @@ int main()
     music.play();
     
     
-    /*
-    sf::SoundBuffer soundbuffer;
-    sf::Sound sound;
-
-    if (!soundbuffer.loadFromFile("test.ogg"))
-        std::cout << "can't find\n";
-    sound.setBuffer(soundbuffer);
-    sound.play();
-    */
+   //Create the objectsand set paramiters like start position , and start level
     Meta meta(380, 10);
-   // Ball ball(400,300,3.0,3.0); //podajemy paramtery gdzie ma byc stworzona kulka
-    Ball ball(20, 20, level_medium[2][0], level_medium[2][1]); //wszedzie
-    Ball ball2(20, 20, level_medium[1][0], level_medium[1][1]); //pionowo
-    Ball ball3(20, 20, level_medium[0][0], level_medium[0][1]);  //poziomo
+    //In tthe last paramters set the level and move direction
+    Ball ball(20, 20, level_medium[2][0], level_medium[2][1]); //everywhere
+    Ball ball2(20, 20, level_medium[1][0], level_medium[1][1]); //vertical
+    Ball ball3(20, 20, level_medium[0][0], level_medium[0][1]);  //horizontal
 
-    Ball ball4(300, 300, level_medium[2][0], level_medium[2][1]); //wszedzie
-    Ball ball5(200, 200, level_medium[1][0], level_medium[1][1]); //pionowo
-    Ball ball6(500, 500, level_medium[0][0], level_medium[0][1]);  //poziomo
+    Ball ball4(300, 300, level_medium[2][0], level_medium[2][1]); //everywhere
+    Ball ball5(200, 200, level_medium[1][0], level_medium[1][1]); //vertical
+    Ball ball6(500, 500, level_medium[0][0], level_medium[0][1]);  //horizontal
     
-   //sf::Color my_color_player = choose_Col[0];
 
     Pionek player(380,560, 40, 40, 6, sf::Color:: Red);
-    //Pionek player(476, 321,40,40,6,sf::Color::Red);
-    //tworzymy okno i tworzymy jego nazwe i tytul 
+
+    //Createthe main window, set the size of window, set the title
 
     sf::RenderWindow window(sf::VideoMode{ 800,600 }, "Simple Game");
+    //Create other window which will be display i  our application
 
     Menu menu(window.getSize().x, window.getSize().y);
     Options options(window.getSize().x, window.getSize().y);
@@ -144,18 +131,18 @@ int main()
     Color_Menu color(window.getSize().x, window.getSize().y);
     End_menu the_end2(window.getSize().x, window.getSize().y);
     
-    //czestotliwosc odswierzania
+    //Set frame limit 
     window.setFramerateLimit(60);
 
-    //tworzymy obiekt typu event, bedzie odpowiedzilany za interakcje miedzy uzywkonikiem a programem
+    //create the object which will be resposible for action between game and user
     sf::Event event;
-    //options.draw(window);
+    
     
     while (true) {
-        //czyscimy wszystko
+        //clear all
         window.clear(sf::Color::Black);
         
-        //mozna rozszerzac i minimalizowac okno
+        //MAIN MENU
         if (check==0) {
             menu.draw(window);
             while (window.pollEvent(event))
@@ -176,7 +163,7 @@ int main()
                         switch (menu.GetPressedItem())
                         {
                         case 0:
-                            std::cout << "Play button has been pressed\n";
+                            std::cout << "PLAY\n";
                             check = 1;
                            
                             break;
@@ -184,7 +171,7 @@ int main()
                             check = 2;
                             window.clear(sf::Color::Black);
                             
-                            std::cout << "Options button has been pressed\n";
+                            std::cout << "OPTIONS\n";
                             //menu.close(window);
 
                             break;
@@ -197,28 +184,16 @@ int main()
 
                     }
                     break;
-                //case sf::Event::Closed:
-                  //  window.close();
-                   // break;
-
-                }
-
-
-                
+                }  
             }
         }
        
 
         
        
-        
+        //GAME
         if(check==1){
-           // if (k == 0) {
-           //     Pionek player(580, 380, 40, 40, 6, my_color_player);
-           //     k++;
-           // }
-           // else {
-
+         
                 ball.update();
                 ball2.update();
                 ball3.update();
@@ -227,115 +202,61 @@ int main()
                 ball6.update();
                 player.update();
 
+                //ALL elements will be drawn
                 window.draw(meta);
-                window.draw(ball);  //kulka zostanie wyswietlona na ekranie
+                window.draw(ball);  
                 window.draw(ball2);
                 window.draw(ball3);
-                window.draw(ball4);  //kulka zostanie wyswietlona na ekranie
+                window.draw(ball4); 
                 window.draw(ball5);
                 window.draw(ball6);
                 window.draw(player);
 
-                //wyswietlimy wszyskie elementy
+               
 
 
-                //tutaj zamykamy nasza gre
-                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
+                //if press ESC game will be closed.
+                if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Escape)) {
                     exit(0);
                 }
 
                 if (collisionTest(player, ball)) {
-                    //End_menu the_end(window.getSize().x, window.getSize().y, false);
-                    //window.draw(the_end);
-                   // player.destroy();
                     the_end2.set_finish(false);
                     check = 8;
-                   // end = false;
-                    std::cout << "ball\n";
-                   
-
                 }
                 if (collisionTest(player, ball2)) {
-                    //End_menu the_end1(window.getSize().x, window.getSize().y, false);
-                   // window.draw(the_end1);
-                    //player.destroy();
                     the_end2.set_finish(false);
-                    check = 8;
-                    //end = false;
-                    std::cout << "udalo ball2\n";
-                    
+                    check = 8;   
                 }
 
                 if (collisionTest(player, ball3)) {
-                    // End_menu the_end2(window.getSize().x, window.getSize().y, false);
-                    //window.draw(the_end2);
-                    // player.destroy();
                     the_end2.set_finish(false);
                     check = 8;
-                    std::cout << "udalo sie\n";
-                    //end = false;
-                    
                 }
 
 
                 if (collisionTest(player, ball4)) {
-                    //End_menu the_end(window.getSize().x, window.getSize().y, false);
-                    //window.draw(the_end);
-                   // player.destroy();
                     the_end2.set_finish(false);
                     check = 8;
-                    // end = false;
-                    std::cout << "ball\n";
-
-
                 }
                 if (collisionTest(player, ball5)) {
-                    //End_menu the_end1(window.getSize().x, window.getSize().y, false);
-                   // window.draw(the_end1);
-                    //player.destroy();
                     the_end2.set_finish(false);
                     check = 8;
-                    //end = false;
-                    std::cout << "udalo ball2\n";
-
                 }
 
                 if (collisionTest(player, ball6)) {
-                    // End_menu the_end2(window.getSize().x, window.getSize().y, false);
-                    //window.draw(the_end2);
-                    // player.destroy();
                     the_end2.set_finish(false);
                     check = 8;
-                    std::cout << "udalo sie\n";
-                    //end = false;
-
                 }
 
 
                 if (collisionTest(player, meta)) {
-
-                    //End_menu the_end3(window.getSize().x, window.getSize().y, true);
-                     //window.draw(the_end3);
-                     //meta.destroy();
                     check = 8;
-                    //end = true;
-                    std::cout << "meta\n";
                     the_end2.set_finish(true);
                 }
-                /*
-                if (player.isDestroyed==true) {
-                    End_menu the_end1(window.getSize().x, window.getSize().y, false);
-                    window.draw(the_end1);
-                }*/
-                /*
-                if (meta.isDestroyed()==true) {
-                    End_menu the_end(window.getSize().x, window.getSize().y, true);
-                    window.draw(the_end);
-                }
-                */
-           // }
         }
-       
+      
+        //OPTIONS MENU
         if (check == 2) {
             
             window.draw(options);
@@ -360,69 +281,37 @@ int main()
                         switch (options.GetPressedItem())
                         {
                         case 0:
-                            std::cout << "Poziom Trundosci\n";
+                            std::cout << "DIFFICULT LEVEL\n";
                             check = 4;
 
                             break;
                         case 1:
-                            
-                            //window.clear(sf::Color::Black);
-
-                            std::cout << "Muzyka\n";
-                            //menu.close(window);
-                           /* music.stop();
-                            a = utwory[1];
-                            if (!music.openFromFile(a)) {
-
-                                std::cout << "ERROR\n";
-
-                            }
-                            music.play();
-                            */
+                            std::cout << "MUSIC\n";
                             check = 5;
-
                             break;
                         case 2:
-                            std::cout << "kolor obiektow\n";
+                            std::cout << "PLAYER COLOR\n";
                             check = 6;
                             break;
 
                         case 3:
-                            std::cout << "wstecz\n";
+                            std::cout << "BACK\n";
                             check = 0;
                             break;
 
                         case 4:
-                            std::cout << "exit\n";
+                            std::cout << "EXIT\n";
                             window.close();
                             exit(0);
                             break;
-
-
-
                         }
-
-
-
                     }
                     break;
-                    //case sf::Event::Closed:
-                      //  window.close();
-                       // break;
-
                 }
-
-
-
             }
-
-
-
-
-
         }
 
-
+        //DISPLAY LEVEL SET MENU
         if (check == 4) {
             window.draw(finish);
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
@@ -446,7 +335,8 @@ int main()
                         switch (finish.GetPressedItem())
                         {
                         case 0:
-                            std::cout << "Latwy\n";
+                            std::cout << "EASY\n";
+                            //Set the dificult level as easy
                             ball.change_level(level_easy[2][0], level_easy[2][1]);
                             ball2.change_level(level_easy[1][0],level_easy[1][1]);
                             ball3.change_level(level_easy[0][0],level_easy[0][1]);
@@ -459,7 +349,8 @@ int main()
 
                             
 
-                            std::cout << "Sredni\n";
+                            std::cout << "MEDIUM\n";
+                            //set the dificult level as MEDIUM
                             ball.change_level(level_medium[2][0], level_medium[2][1]);
                             ball2.change_level(level_medium[1][0], level_medium[1][1]);
                             ball3.change_level(level_medium[0][0], level_medium[0][1]);
@@ -470,7 +361,8 @@ int main()
 
                             break;
                         case 2:
-                            std::cout << "Trudny\n";
+                            std::cout << "HARD\n";
+                            //Set the difficult level as EASY
                             ball.change_level(level_hard[2][0], level_hard[2][1]);
                             ball2.change_level(level_hard[1][0], level_hard[1][1]);
                             ball3.change_level(level_hard[0][0], level_hard[0][1]);
@@ -480,32 +372,17 @@ int main()
                             break;
 
                         case 3:
-                            std::cout << "Wstecz\n";
+                            std::cout << "BACK\n";
                             check = 2;
                             break;
-
-
                         }
-
-
-
                     }
                     break;
-                    //case sf::Event::Closed:
-                      //  window.close();
-                       // break;
-
                 }
-
-
-
             }
-
-
-
         }
 
-
+        //DISPLAY MUSIC SET MENU
         if (check == 5)
         {
             window.draw(music_choise);
@@ -534,26 +411,17 @@ int main()
                             music.stop();
                             a = utwory[0];
                             if (!music.openFromFile(a)) {
-
                                 std::cout << "ERROR\n";
-
                             }
                             music.play();
-                            
-
-
                             break;
                         case 1:
-
-                            //window.clear(sf::Color::Black);
 
                             std::cout << "My_Doorbell\n";
                             music.stop();
                             a = utwory[1];
                             if (!music.openFromFile(a)) {
-
                                 std::cout << "ERROR\n";
-
                             }
                             music.play();
 
@@ -562,48 +430,25 @@ int main()
                             std::cout << "Hardest_Button\n";
                             music.stop();
                             a = utwory[2];
+
                             if (!music.openFromFile(a)) {
-
                                 std::cout << "ERROR\n";
-
                             }
                             music.play();
-
                             break;
 
                         case 3:
-                            std::cout << "Wstecz\n";
+                            std::cout << "BACK\n";
                             check = 2;
                             break;
-
-                            
-
                         }
-
-
-
                     }
                     break;
-                    //case sf::Event::Closed:
-                      //  window.close();
-                       // break;
-
                 }
-
-
-
             }
-
-
-
         }
 
-        /*
-        if (check == 7) {
-            End_menu the_end1(window.getSize().x, window.getSize().y, false);
-            window.draw(the_end1);
-        }
-        */
+       //DISPLAY COLOR SET MENU
         if (check == 6) {
             window.draw(color);
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
@@ -628,17 +473,11 @@ int main()
                         {
                         case 0:
                             std::cout << "Blue\n";
-                            //player.change_color(choose_Col[0]);
                             player.change_color(sf::Color::Blue);
 
                             break;
                         case 1:
-
-                            //window.clear(sf::Color::Black);
-
                             std::cout << "Yellow\n";
-                            //menu.close(window);
-                            //my_color_player = choose_Col[1];
                             player.change_color(sf::Color::Yellow);
                             
 
@@ -650,35 +489,18 @@ int main()
                             break;
 
                         case 3:
-                            std::cout << "Wstecz\n";
+                            std::cout << "BACK\n";
                             check = 2;
                             break;
-
-
                         }
-
-
-
                     }
                     break;
-                    //case sf::Event::Closed:
-                      //  window.close();
-                       // break;
-
                 }
-
-
-
             }
-
-
-
-
         }
 
-
+        //Here will be dipslay our END MENU
         if (check == 8) {
-            //End_menu the_end2(window.getSize().x, window.getSize().y, end);
             window.draw(the_end2);
             player.position();
             if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
@@ -721,25 +543,9 @@ int main()
 
                     }
                     break;
-                    //case sf::Event::Closed:
-                      //  window.close();
-                       // break;
-
                 }
-
-
-
             }
-
-
-
         }
-        
-
-           
-          
-           
-        //sprawdzamy czy X do zamkniecia zostal klikniety, po tym bedziemy destroy okno
         
             window.display();
     }

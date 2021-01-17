@@ -15,7 +15,7 @@ Menu::Menu(float width, float height)
 	menu[1].setFont(font);
 	menu[1].setFillColor(sf::Color::White);
 	menu[1].setString("Options");
-	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));	//ta liczb 2 na koncu pozwala nam uzyskac kolejnosc naszego Menu , Play bedzie pierwsze options 2
+	menu[1].setPosition(sf::Vector2f(width / 2, height / (MAX_NUMBER_OF_ITEMS + 1) * 2));	
 
 	menu[2].setFont(font);
 	menu[2].setFillColor(sf::Color::White);
@@ -57,16 +57,7 @@ void Menu::MoveDown() {
 		menu[selectedItemIndex].setFillColor(sf::Color::Red);
 	}
 }
-/*
-int Menu:: GetPressedItem() {
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Enter)) {
-		return selectedItemIndex;
-	}
-	else
-		return -1000;
 
-}
-*/
 void Menu::close(sf::RenderWindow& window) {
 	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
 		window.clear();
