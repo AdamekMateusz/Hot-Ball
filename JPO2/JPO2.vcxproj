@@ -144,6 +144,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Action.cpp" />
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Color_Menu.cpp" />
     <ClCompile Include="End_menu.cpp" />
@@ -156,6 +157,7 @@
     <ClCompile Include="Pionek.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Action.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Color_Menu.h" />
     <ClInclude Include="End_menu.h" />
