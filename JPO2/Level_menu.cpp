@@ -1,7 +1,7 @@
-#include "Finisher.h"
+#include "Level_menu.h"
 #include <SFML/Graphics.hpp>
 
-Finisher::Finisher(float width, float height)
+Level_menu::Level_menu(float width, float height)
 {
 	if (!font.loadFromFile("arial.ttf")) {
 		//hand error
@@ -32,12 +32,12 @@ Finisher::Finisher(float width, float height)
 	selectedItemIndex = 0;
 }
 
-Finisher::~Finisher()
+Level_menu::~Level_menu()
 {
 
 }
 
-void Finisher::draw(sf::RenderTarget& target, sf::RenderStates state) const
+void Level_menu::draw(sf::RenderTarget& target, sf::RenderStates state) const
 {
 	for (int i = 0; i < MAX_NUMBER_OF_ITEMS; i++) {
 		target.draw(this->FinishW[i], state);
@@ -45,7 +45,7 @@ void Finisher::draw(sf::RenderTarget& target, sf::RenderStates state) const
 }
 
 
-void Finisher::MoveLeft() {
+void Level_menu::MoveLeft() {
 	if (selectedItemIndex - 1 >= 0) {
 
 		FinishW[selectedItemIndex].setFillColor(sf::Color::White);
@@ -55,7 +55,7 @@ void Finisher::MoveLeft() {
 
 }
 
-void Finisher::MoveRight() {
+void Level_menu::MoveRight() {
 	if (selectedItemIndex + 1 < MAX_NUMBER_OF_ITEMS) {
 
 		FinishW[selectedItemIndex].setFillColor(sf::Color::White);

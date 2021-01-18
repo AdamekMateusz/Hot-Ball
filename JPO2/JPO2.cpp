@@ -10,11 +10,11 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include "Ball.h"
-#include "Pionek.h"
+#include "Pawn.h"
 #include "Meta.h"
 #include "Menu.h"
 #include "Options.h"
-#include "Finisher.h"
+#include "Level_menu.h"
 #include <vector>
 #include <string> 
 #include "Music_choise_menu.h"
@@ -78,7 +78,7 @@ int main()
     Ball ball6(500, 500, level_medium[0][0], level_medium[0][1]);  //horizontal
 
 
-    Pionek player(380,560, 40, 40, 6, sf::Color:: Red);
+    Pawn player(380,560, 40, 40, 6, sf::Color:: Red);
 
     //Createthe main window, set the size of window, set the title
 
@@ -87,7 +87,7 @@ int main()
 
     Menu menu(window.getSize().x, window.getSize().y);
     Options options(window.getSize().x, window.getSize().y);
-    Finisher finish(window.getSize().x, window.getSize().y);
+    Level_menu finish(window.getSize().x, window.getSize().y);
     Music_choise_menu music_choise(window.getSize().x, window.getSize().y);
     Color_Menu color(window.getSize().x, window.getSize().y);
     End_menu the_end2(window.getSize().x, window.getSize().y);

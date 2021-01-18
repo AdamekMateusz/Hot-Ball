@@ -148,25 +148,25 @@
     <ClCompile Include="Ball.cpp" />
     <ClCompile Include="Color_Menu.cpp" />
     <ClCompile Include="End_menu.cpp" />
-    <ClCompile Include="Finisher.cpp" />
+    <ClCompile Include="Level_menu.cpp" />
     <ClCompile Include="JPO2.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Meta.cpp" />
     <ClCompile Include="Music_choise_menu.cpp" />
     <ClCompile Include="Options.cpp" />
-    <ClCompile Include="Pionek.cpp" />
+    <ClCompile Include="Pawn.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
     <ClInclude Include="Ball.h" />
     <ClInclude Include="Color_Menu.h" />
     <ClInclude Include="End_menu.h" />
-    <ClInclude Include="Finisher.h" />
+    <ClInclude Include="Level_menu.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Meta.h" />
     <ClInclude Include="Music_choise_menu.h" />
     <ClInclude Include="Options.h" />
-    <ClInclude Include="Pionek.h" />
+    <ClInclude Include="Pawn.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

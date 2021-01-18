@@ -3,11 +3,11 @@
 
 #define MAX_NUMBER_OF_ITEMS 4
 
-class Finisher :public sf::Drawable
+class Level_menu :public sf::Drawable
 {
 public:
-	Finisher(float width, float height);
-	~Finisher();
+	Level_menu(float width, float height);
+	~Level_menu();
 
 	//void draw(sf::RenderWindow& window);
 	void MoveLeft();

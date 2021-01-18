@@ -18,7 +18,7 @@
     <ClCompile Include="JPO2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Pionek.cpp">
+    <ClCompile Include="Pawn.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Ball.cpp">
@@ -33,7 +33,7 @@
     <ClCompile Include="Options.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Finisher.cpp">
+    <ClCompile Include="Level_menu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Music_choise_menu.cpp">
@@ -50,7 +50,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Pionek.h">
+    <ClInclude Include="Pawn.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Ball.h">
@@ -65,7 +65,7 @@
     <ClInclude Include="Options.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Finisher.h">
+    <ClInclude Include="Level_menu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Music_choise_menu.h">

@@ -3,14 +3,14 @@
 //tutaj bedziemy robic kwadrat kwadrat bedzie naszym playerem, bedziemy sie nim poruszac
 //dziedziczmy publicznie mozliwosc narysownaia nszego pionka
 
-class Pionek :public sf::Drawable
+class Pawn :public sf::Drawable
 {
 public:
-	Pionek() = delete;
-	~Pionek() = default;
+	Pawn() = delete;
+	~Pawn() = default;
 	//create the countructor whitz parameters
 	// t_X i t_Y is a start coordinates of our player, t_width, t_hight is a size of our player
-	Pionek(float t_X, float t_Y, float t_width, float t_high, float speed, sf::Color a);
+	Pawn(float t_X, float t_Y, float t_width, float t_high, float speed, sf::Color a);
 
 	void update();
 	sf::Vector2f getPosition();

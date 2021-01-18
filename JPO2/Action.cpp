@@ -13,7 +13,7 @@ template <class T1, class T2> bool isIntersecting(T1& A, T2& B) {
 }
 
 //return true if two or more object are interecting
-bool collisionTest(Pionek& player, Ball& ball2) {
+bool collisionTest(Pawn& player, Ball& ball2) {
 
     if (!isIntersecting(player, ball2)) {
         return false;
@@ -29,7 +29,7 @@ bool collisionTest(Pionek& player, Ball& ball2) {
 }
 
 //return true if two or more object are intersecting
-bool collisionTest(Pionek& player, Meta& meta) {
+bool collisionTest(Pawn& player, Meta& meta) {
 
     if (!isIntersecting(player, meta)) {
         return false;
@@ -91,7 +91,7 @@ void Action:: MainMenu_draw(sf::RenderWindow &window, int &check,sf::Event &even
 
 }
 
-void Action::Game_draw(sf::RenderWindow &window,Ball &ball,Ball &ball2,Ball &ball3,Ball &ball4,Ball &ball5,Ball &ball6,Pionek &player,Meta &meta,End_menu &the_end2,int &check) {
+void Action::Game_draw(sf::RenderWindow &window,Ball &ball,Ball &ball2,Ball &ball3,Ball &ball4,Ball &ball5,Ball &ball6,Pawn &player,Meta &meta,End_menu &the_end2,int &check) {
     ball.update();
     ball2.update();
     ball3.update();
@@ -212,7 +212,7 @@ void Action::Options_menu(sf::RenderWindow &window,sf::Event &event,int &check,O
 
 }
 
-void Action:: Display_level(sf::RenderWindow &window,Ball &ball,Ball &ball2,Ball &ball3,Ball &ball4,Ball &ball5,Ball &ball6,sf::Event event,Finisher &finish, std::vector<std::vector<int>> &level_hard, std::vector<std::vector<int>> &level_medium, std::vector<std::vector<int>> &level_easy, int &check) {
+void Action:: Display_level(sf::RenderWindow &window,Ball &ball,Ball &ball2,Ball &ball3,Ball &ball4,Ball &ball5,Ball &ball6,sf::Event event,Level_menu &finish, std::vector<std::vector<int>> &level_hard, std::vector<std::vector<int>> &level_medium, std::vector<std::vector<int>> &level_easy, int &check) {
     window.draw(finish);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
         exit(0);
@@ -353,7 +353,7 @@ void Action::Music_set(sf::RenderWindow &window,sf::Event &event, int &check,std
 
 }
 
-void Action::Color_set_menu(sf::RenderWindow &window, sf::Event &event,Pionek &player,int &check,Color_Menu &color) {
+void Action::Color_set_menu(sf::RenderWindow &window, sf::Event &event,Pawn &player,int &check,Color_Menu &color) {
     window.draw(color);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Q)) {
         exit(0);
@@ -405,7 +405,7 @@ void Action::Color_set_menu(sf::RenderWindow &window, sf::Event &event,Pionek &p
 
 }
 
-void Action::Exit_menu(sf::RenderWindow &window, Pionek &player, int &check, sf::Event &event,End_menu &the_end2) {
+void Action::Exit_menu(sf::RenderWindow &window, Pawn &player, int &check, sf::Event &event,End_menu &the_end2) {
 
     window.draw(the_end2);
     player.position();

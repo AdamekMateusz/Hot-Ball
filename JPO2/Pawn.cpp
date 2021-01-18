@@ -1,8 +1,8 @@
-#include "Pionek.h"
+#include "Pawn.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-Pionek::Pionek(float t_X,float t_Y,float width, float high,float speed, sf::Color a) {
+Pawn::Pawn(float t_X,float t_Y,float width, float high,float speed, sf::Color a) {
 	shape.setPosition(t_X, t_Y);
 	shape.setFillColor(a);
 	shape.setSize({ width,high });
@@ -13,14 +13,14 @@ Pionek::Pionek(float t_X,float t_Y,float width, float high,float speed, sf::Colo
 
 }
 
-void Pionek::draw(sf::RenderTarget& target, sf::RenderStates state) const
+void Pawn::draw(sf::RenderTarget& target, sf::RenderStates state) const
 {
 
 	target.draw(this->shape, state);
 
 }
 
-void Pionek::update() {
+void Pawn::update() {
 	this->shape.move(this->velocity);
 	//tutaj definiuje co sie bedzie dzialo jesli wcisniemy jakis przycisk, np. gddy wcisniemy przycisk strzalka "UP" ora z wspolrzedne nasze beda wieksze niz 0 na osi Y to pozwoli nam sie przesunac do gory
 
@@ -52,7 +52,7 @@ void Pionek::update() {
 }
 
 
-float Pionek::left()
+float Pawn::left()
 {	
 
 	if ((this->shape.getPosition().x - shape.getSize().x / 2.f) <= 0) {
@@ -65,7 +65,7 @@ float Pionek::left()
 	}
 
 }
-float Pionek::right()
+float Pawn::right()
 {
 	if ((this->shape.getPosition().x + shape.getSize().x / 2.f) >= 800){
 		shape.setPosition(780, shape.getPosition().y);
@@ -76,7 +76,7 @@ float Pionek::right()
 	}
 }
 
-float Pionek::top()
+float Pawn::top()
 {
 	if ((this->shape.getPosition().y - shape.getSize().y / 2.f) <= 0) {
 		shape.setPosition(shape.getPosition().x,20);
@@ -88,7 +88,7 @@ float Pionek::top()
 	
 }
 
-float Pionek::bottom()
+float Pawn::bottom()
 {
 	if ((this->shape.getPosition().y + shape.getSize().y / 2.f) >= 600) {
 		shape.setPosition(shape.getPosition().x, 580);
@@ -101,33 +101,33 @@ float Pionek::bottom()
 }
 
 
-sf::Vector2f Pionek::getPosition() {
+sf::Vector2f Pawn::getPosition() {
 
 	return this-> shape.getPosition();
 }
 
 
-bool Pionek::isDestroyed() {
+bool Pawn::isDestroyed() {
 	return this->destroyed;
 }
 
-void Pionek::destroy(){
+void Pawn::destroy(){
 
 	this->destroyed = true;
 	//std::cout << "Jest w destroy\n";
 	//exit(0);
 }
 
-sf::Vector2f Pionek :: getSize() {
+sf::Vector2f Pawn :: getSize() {
 	return shape.getSize();
 }
 
-void Pionek :: change_color(sf::Color a) {
+void Pawn :: change_color(sf::Color a) {
 	shape.setFillColor(a);
 
 }
 
-void Pionek::position() {
+void Pawn::position() {
 	shape.setPosition(380, 560);
 
 }
