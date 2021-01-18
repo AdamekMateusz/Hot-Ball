@@ -6,21 +6,48 @@ class Ball : public sf::Drawable
 {
 public:
 	
-
-	//coordinates od our ball,speed our ball
+	/**
+		this is the contructor of our Ball
+		@param1 the X axe of size of our ball (float)
+		@param2 the Y axe of size of our ball (float)
+		@param3 the speed of X direction (float)
+		@param4 the speed of Y direction (float)
+	*/
 	Ball(float t_X, float t_Y, float velocity_X, float velocity_Y);
 
 	Ball() = delete;
 	~Ball() = default;
 
-	//function which refresh our object on the map
+	/**update this ist the function which refres object on the window, no paramiters
+	 
+	*/
 	void update();
-	
-	//return the edge, we will be check that the coordinates of our ball is the same like edge
+
+	/**void left() this function calculated left edge of our ball
+	 @return coordinates of left edge of ball
+	*/
 	float left();
+
+	/**void right() this function calculated right edge of our ball
+	 @return coordinates of right edge of ball
+	*/
 	float right();
-	float top();    
+
+	/**void top() this function calculated top edge of our ball
+	 @return coordinates of top edge of ball
+	*/
+	float top();
+
+	/**void bottom() this function calculated left edge of our ball
+	  @return coordinates of bottom edge of ball
+	*/
 	float bottom();
+
+	/**This function allow change the level of our game, 
+	 @param1 the speed of X direction (float)
+	 @param2 the speed of Y direction (float)
+	
+	*/
 	void change_level(float x,float y);
 
 private:

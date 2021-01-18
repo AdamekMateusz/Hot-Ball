@@ -45,9 +45,9 @@ bool Meta::isDestroyed() {
 }
 
 void Meta::destroy() {
-	//kezeli player dojsdzie do mety to cos ma sie wyswietlic
+	//if player get Meta , something might display
 	this->destroyed = true;
-	//std::cout << "Jest w destroy\n";
+	
 	
 	
 	
